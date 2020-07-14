@@ -1,8 +1,10 @@
 # Selenium, beautiful soup and regex to download lecture videos from University of London :smile:
+## https://medium.com/@patrickhk/selenium-beautiful-soup-and-regex-to-download-lecture-videos-from-university-of-london-42e7f4011f56
+
 Currently I am studying the Msc of Data Science from University of London and we can download the lecture videos through student portal for offline learning. This article will share how to use python to automatically download all the learning videos from UoL. Full code will be provided at the end.
 
 
-### 1. Use Selenium to login the student portal 
+## 1. Use Selenium to login the student portal 
 To scrape information from website requiring login, we can use requests.session().postor Selenium. 
 In this sharing I will use Selenium to help me login the student portal because it is easy and convenient. 
 Go to https://learn.london.ac.uk/login/index.php and we want Selenium to input the Username and Password field and click the Log in button for us.
@@ -27,7 +29,7 @@ driver.find_element_by_id("loginbtn").click()
 
 By running the above code in jupyter notebook, a chrome browser will be created and login the student portal automatically. <br/>
 
-### 2. Use beautiful soup to scrape and regex to get the video link 
+## 2. Use beautiful soup to scrape and regex to get the video link 
 We have different courses in one semester and each course contains several topics, each topic have several mini lectures. Therefore my goal is to scrape the link of each mini lecture and extract the link for the lecture video then download it. <br/>
 
 ![p2](https://cdn-images-1.medium.com/max/1200/1*Fkt2I-CnHBxEWTELnG0ZcQ.png) <br/>
@@ -95,10 +97,10 @@ print('Job is done!')
 ```
 Then we just use request to download the video and rename it by using the title of the lecture. 
 
-### Fullcode
+## Fullcode
 Full code are availabe in jupyter notebook format and html for easier reading
 
-### Why not use request.POST?
+## Why not use request.POST?
 Honestly I did try to use request.session().POST instead of Selenium. I spend hours and read several articles but failed. I can successfully login the student portal but encounter redirects error and cannot scrape the webpage content. I trying adjusting the session.max_redirects or allow_redirects=False but still failed to to the job. So if anyone know how to do it, welcome to share!
 
 -------------------------------------------------------------------------------------------------------------------------------------
